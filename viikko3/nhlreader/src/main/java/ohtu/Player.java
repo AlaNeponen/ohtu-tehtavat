@@ -11,7 +11,10 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-
+    public int getPoints() {
+        points = goals + assists;
+        return points;
+    }
     public String getName() {
         return name;
     }
@@ -21,7 +24,7 @@ public class Player {
     }
     @Override
     public String toString() {
-        return name + ", " + goals + " goals, " + assists + " assists";
+        return name + ", " + goals + " + " + assists + " = " + points;
     }
       
 }
