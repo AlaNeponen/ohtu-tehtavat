@@ -15,7 +15,16 @@ public class Stepdefs {
     //WebDriver driver = new ChromeDriver();signupsignupsignupsignup
     WebDriver driver = new HtmlUnitDriver();
     String baseUrl = "http://localhost:4567";
-    
+    @Given("user with username {string} with password {string} is successfully created")
+    public void userWithUsernameWithPasswordIsSuccessfullyCreated(String username, String password) {
+        NewIsSelected();
+        createNewUser(username, password, password);
+    }
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void userWithUsernameAndPasswordIsTriedToBeCreated(String username, String password) {
+        NewIsSelected();
+        createNewUser(username, password, password);
+    }
     @Given("login is selected")
     public void loginIsSelected() {
         driver.get(baseUrl);
