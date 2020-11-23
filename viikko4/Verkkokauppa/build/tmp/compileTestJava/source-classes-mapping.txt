@@ -1,0 +1,2 @@
+ohtu/verkkokauppa/VerkkokauppaTest.java
+ ohtu.verkkokauppa.VerkkokauppaTest
