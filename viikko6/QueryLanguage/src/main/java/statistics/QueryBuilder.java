@@ -18,7 +18,10 @@ public class QueryBuilder {
     }
     
     public Matcher build() {
-        return this.matcher;
+        Matcher palautettava = this.matcher;
+        this.matcher = new All();
+        return palautettava;
+        
     }
 
     public QueryBuilder playsIn(String joukkue) {
@@ -37,6 +40,13 @@ public class QueryBuilder {
     }
     public QueryBuilder not(Matcher matcher) {
         this.matcher = new And(this.matcher, new Not(matcher));
+        return this;
+    }
+    public QueryBuilder oneOf(Matcher...matchers) {
+        this.matcher = new HasFewerThan(0, "goals");
+        for (Matcher m : matchers) {
+            this.matcher = new Or(this.matcher, m);
+        }
         return this;
     }
 }
